@@ -2,6 +2,7 @@ body {
   font-family: "Nunito", sans-serif;
   font-size: 14px;
   font-weight: 400;
+  color: $heading-color;
 }
 
 a {
@@ -25,6 +26,7 @@ img {
 
 .decor {
   position: absolute;
+  z-index: 8;
 }
 
 button {
@@ -36,7 +38,9 @@ button {
 }
 
 .btn {
-  @include flexbox(center, center);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   background-color: $main-light-color;
   color: $light-color;
   font-size: 16px;
@@ -46,6 +50,36 @@ button {
   padding: 10px 30px;
   border-radius: 5px;
   border: 1px solid $main-light-color;
+}
+
+.btn-more {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: $text-color;
+  .icon {
+    width: 16px;
+    height: 12px;
+    fill: $text-color;
+  }
+}
+
+.icon {
+  fill: $heading-color;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+  color: $heading-color;
+  span {
+    display: block;
+    color: $main-light-color;
+  }
 }
 
 .subtitle {
@@ -63,6 +97,22 @@ button {
   font-weight: 400;
   line-height: 22px;
   color: $text-color;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 45px;
+  }
+  .btn {
+    font-size: 18px;
+  }
+  .btn-more {
+    font-size: 18px;
+    .icon {
+      width: 20px;
+      height: 16px;
+    }
+  }
 }
 
 @media (min-width: 1024px) {
@@ -85,6 +135,14 @@ button {
   .btn {
     &:hover {
       background-color: $light-color;
+      color: $main-light-color;
+      .icon {
+        fill: $main-light-color;
+      }
+    }
+  }
+  .btn-more {
+    &:hover {
       color: $main-light-color;
       .icon {
         fill: $main-light-color;
