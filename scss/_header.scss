@@ -1,0 +1,205 @@
+.header {
+  &__bottom {
+    padding: 15px 0;
+  }
+  .icon {
+    fill: $light-color;
+  }
+}
+
+.topnav {
+  padding: 20px 0;
+  background-color: $main-color;
+  &__content {
+    @include flexbox(space-between, center);
+    gap: 20px;
+  }
+  &__contacts {
+    @include flexbox(start, center);
+    gap: 20px;
+  }
+  &__link {
+    span {
+      display: none;
+    }
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__lang {
+    @include flexbox(start, center);
+    gap: 5px;
+    font-size: 12px;
+    color: $light-color;
+    .icon {
+      width: 12px;
+      height: 7px;
+    }
+  }
+}
+
+.logo {
+  width: 90px;
+  &__link {
+    display: block;
+  }
+}
+
+.main-nav {
+  @include flexbox(space-between, center);
+  gap: 20px;
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+  .menu {
+    display: none;
+  }
+  &__info {
+    @include flexbox(start, center);
+    gap: 40px;
+  }
+  .btn {
+    padding: 7px 10px;
+    border-radius: 10px;
+    span {
+      display: none;
+    }
+  }
+  &__toggle {
+    position: relative;
+    font-size: 0;
+    width: 30px;
+    height: 20px;
+    span,
+    &::before,
+    &::after {
+      left: 0;
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background-color: $main-light-color;
+    }
+    &::before {
+      top: 0;
+    }
+    span {
+      top: 9px;
+    }
+    &::after {
+      bottom: 0;
+      width: 20px;
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .topnav {
+    padding: 17px 0;
+    &__link {
+      .icon {
+        width: 25px;
+        height: 25px;
+      }
+    }
+    &__lang {
+      font-size: 14px;
+      color: $light-color;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .topnav {
+    &__contacts {
+      gap: 30px;
+    }
+    &__link {
+      @include flexbox(start, center);
+      gap: 10px;
+      font-family: "Poppins", sans-serif;
+      font-size: 14px;
+      line-height: 25px;
+      span {
+        display: inherit;
+        color: $light-color;
+      }
+      .icon {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+  .logo {
+    width: 120px;
+  }
+  .main-nav {
+    .btn {
+      padding: 10px 30px;
+      border-radius: 5px;
+      gap: 10px;
+      span {
+        display: inherit;
+      }
+      .icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1430px) {
+  .topnav {
+    &__link {
+      &:hover {
+        color: $light-color;
+        text-decoration: underline;
+      }
+    }
+  }
+  .main-nav {
+    gap: 100px;
+    .menu {
+      @include flexbox(end, center);
+      flex-grow: 1;
+      &__list {
+        @include flexbox(start, center);
+        gap: 44px;
+      }
+      &__item {
+        @include flexbox(start, center);
+        gap: 4px;
+        &:hover {
+          .menu__link {
+            color: $main-light-color;
+          }
+          .icon {
+            fill: $main-light-color;
+          }
+        }
+      }
+      &__link {
+        color: $heading-color;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 20px; /* 125% */
+        text-transform: capitalize;
+      }
+      &__btn {
+        @include flexbox(center, center);
+        .icon {
+          fill: $heading-color;
+          width: 12px;
+          height: 7px;
+        }
+      }
+    }
+    &__toggle {
+      display: none;
+    }
+  }
+}

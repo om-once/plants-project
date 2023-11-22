@@ -1,0 +1,96 @@
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  min-width: 375px;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  padding: 0 $container-gap;
+  width: 100%;
+}
+
+.container-right {
+  padding-left: calc((100% - $container-width) / 2);
+}
+
+.decor {
+  position: absolute;
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.btn {
+  @include flexbox(center, center);
+  background-color: $main-light-color;
+  color: $light-color;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px; /* 125% */
+  text-transform: capitalize;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: 1px solid $main-light-color;
+}
+
+.subtitle {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: normal;
+  color: $heading-color;
+  span {
+    color: $main-light-color;
+  }
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: $text-color;
+}
+
+@media (min-width: 1024px) {
+  .subtitle {
+    font-size: 45px;
+    font-weight: 800;
+  }
+  .text {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+@media (min-width: 1430px) {
+  .container {
+    max-width: calc($container-width + $container-gap * 2);
+    width: 100%;
+    margin: 0 auto;
+  }
+  .btn {
+    &:hover {
+      background-color: $light-color;
+      color: $main-light-color;
+      .icon {
+        fill: $main-light-color;
+      }
+    }
+  }
+}

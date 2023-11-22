@@ -1,0 +1,24 @@
+@media (min-width: 768px) {
+  .row {
+    @include flexbox(start, stretch);
+    flex-wrap: wrap;
+    margin: -$grid-gap;
+  }
+
+  .col {
+    width: calc(100% - $grid-gap * 2);
+    margin: $grid-gap;
+  }
+  .col-md {
+    width: calc(100% / 2 - $grid-gap * 2);
+  }
+}
+
+@media (min-width: 1430px) {
+  .col-md-lg {
+    width: calc(100% / 3 - $grid-gap * 2);
+  }
+  .col-lg {
+    width: calc(100% / 4 - $grid-gap * 2);
+  }
+}
