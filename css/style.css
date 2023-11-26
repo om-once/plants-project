@@ -1039,6 +1039,7 @@ button {
   }
   .about__content .decor {
     display: block;
+    top: 100px;
     left: -255px;
     width: 255px;
   }
