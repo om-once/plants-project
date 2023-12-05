@@ -921,3 +921,167 @@
     }
   }
 }
+
+.choose {
+  background-color: $main-color;
+  padding: 50px 0;
+  color: $light-color;
+  position: relative;
+  .text {
+    color: $light-color;
+  }
+  &__decor {
+    position: absolute;
+    &_1 {
+      right: 0;
+      top: 0;
+    }
+    &_2 {
+      top: 80px;
+      left: 0;
+    }
+  }
+  &__content {
+    position: relative;
+  }
+  &__bg {
+    margin-bottom: 30px;
+  }
+  &__img {
+    width: 100%;
+    object-fit: cover;
+  }
+  &__desc {
+    .text {
+      text-align: center;
+    }
+  }
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  &__bottom {
+    text-align: center;
+  }
+}
+
+.choose-list {
+  @include flexbox(start, center);
+  flex-wrap: wrap;
+  margin: 30px -15px 20px -15px;
+  &__item {
+    @include flexbox(start, center);
+    width: calc(100% / 2 - 30px);
+    gap: 9px;
+    margin: 10px 15px;
+  }
+  &__icon {
+    width: 20px;
+    height: 20px;
+    background-color: $light-color;
+    @include flexbox(center, center);
+    border-radius: 50%;
+    .icon {
+      width: 13px;
+      height: 13px;
+      fill: $main-light-color;
+    }
+  }
+  &__name {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+  }
+}
+
+@media (min-width: 767px) {
+  .choose {
+    &__desc {
+      .text {
+        text-align: left;
+      }
+    }
+    &__title {
+      text-align: left;
+    }
+    &__bottom {
+      text-align: left;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .choose {
+    padding: 100px 0;
+    &__content {
+      @include flexbox(space-between, stretch);
+      flex-direction: row-reverse;
+      gap: 30px;
+    }
+    &__bg {
+      width: 50%;
+      margin-bottom: 0;
+    }
+    &__img {
+      height: 100%;
+    }
+    &__desc {
+      width: 50%;
+    }
+    &__title {
+      font-size: 45px;
+    }
+  }
+  .choose-list {
+    &__item {
+      gap: 20px;
+    }
+    &__icon {
+      width: 30px;
+      height: 30px;
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &__name {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: 1430px) {
+  .choose {
+    &__decor {
+      &_1 {
+        right: 0;
+        top: 0;
+      }
+      &_2 {
+        top: inherit;
+        left: 0;
+        bottom: 0;
+      }
+    }
+    &__content {
+      gap: 80px;
+    }
+    &__bg {
+      width: 672px;
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+    &__desc {
+      width: auto;
+    }
+  }
+  .choose-list {
+    &__name {
+      font-size: 24px;
+    }
+  }
+}
