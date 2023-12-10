@@ -1,6 +1,10 @@
 .header {
+  position: relative;
   &__bottom {
     padding: 15px 0;
+    position: relative;
+    z-index: 201;
+    background-color: $light-color;
   }
   .icon {
     fill: $light-color;
@@ -10,6 +14,8 @@
 .topnav {
   padding: 20px 0;
   background-color: $main-color;
+  position: relative;
+  z-index: 201;
   &__content {
     @include flexbox(space-between, center);
     gap: 20px;
@@ -53,9 +59,6 @@
     width: 20px;
     height: 20px;
   }
-  .menu {
-    display: none;
-  }
   &__info {
     @include flexbox(start, center);
     gap: 40px;
@@ -85,6 +88,7 @@
     }
     &::before {
       top: 0;
+      transition: 0.3s all linear;
     }
     span {
       top: 9px;
@@ -92,7 +96,141 @@
     &::after {
       bottom: 0;
       width: 20px;
+      transition: 0.3s all linear;
     }
+    &.active {
+      span {
+        display: none;
+      }
+      &::before {
+        top: 10px;
+        transform: rotate(-45deg);
+      }
+      &::after {
+        width: 100%;
+        bottom: 8px;
+        transform: rotate(45deg);
+      }
+    }
+  }
+}
+
+.menu {
+  display: none;
+}
+
+.header-mobile {
+  background-color: $main-color;
+  position: absolute;
+  width: 100%;
+  z-index: 200;
+  top: 0;
+  left: -100%;
+  transition: 0.3s all linear;
+  &.active {
+    left: 0;
+  }
+  &__wrapper {
+    @include flexbox(space-between, start);
+    flex-direction: column;
+    height: 100vh;
+    gap: 30px;
+    overflow: auto;
+  }
+  .menu {
+    display: block;
+    width: 100%;
+    padding-top: 163px;
+    &__item {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba($light-color, 0.2);
+      @include flexbox(start, start);
+      flex-direction: column;
+      gap: 15px;
+      transition: 0.3s all linear;
+      &.active {
+        .menu__link {
+          color: $light-color;
+        }
+        .menu__btn {
+          transform: rotate(180deg);
+          .icon {
+            fill: $light-color;
+          }
+        }
+      }
+    }
+    &__item-wrapper {
+      @include flexbox(start, center);
+      gap: 8px;
+    }
+    &__btn {
+      margin: 0;
+      .icon {
+        width: 12px;
+        height: 10px;
+        opacity: 0.7;
+        transition: 0.3s all linear;
+      }
+    }
+    &__link {
+      color: rgba($light-color, 0.7);
+      font-size: 16px;
+      font-weight: 600;
+      transition: 0.3s all linear;
+    }
+  }
+  &__footer {
+    padding-bottom: 20px;
+    color: $light-color;
+    @include flexbox(center, center);
+    flex-direction: column;
+    gap: 23px;
+    max-width: 240px;
+    margin: 0 auto;
+  }
+  &__copy {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+  }
+}
+
+.submenu {
+  @include flexbox(start, start);
+  flex-direction: column;
+  gap: 15px;
+  margin-left: 20px;
+  height: 0;
+  margin-bottom: -15px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s all linear;
+  &__link {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba($light-color, 0.7);
+  }
+  &.active {
+    height: auto;
+    margin-bottom: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.header-mobile-social {
+  @include flexbox(start, end);
+  gap: 20px;
+  flex-wrap: wrap;
+  &__link {
+    width: 20px;
+    height: 20px;
+  }
+  .icon {
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -140,7 +278,6 @@
     .btn {
       padding: 10px 30px;
       border-radius: 5px;
-      gap: 10px;
       span {
         display: inherit;
       }
@@ -201,5 +338,8 @@
     &__toggle {
       display: none;
     }
+  }
+  .header-mobile {
+    display: none;
   }
 }

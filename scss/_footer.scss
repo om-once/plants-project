@@ -1,0 +1,383 @@
+.footer {
+  background-color: $main-color;
+  color: $light-color;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: $light-color;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 10;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 15px;
+  }
+  &__address,
+  &__number {
+    margin-bottom: 10px;
+  }
+  &__col {
+    margin-bottom: 40px;
+  }
+  &__info-wrapper {
+    border-top: 1px solid $light-color;
+    padding: 15px 0 30px 0;
+  }
+  &__info {
+    text-align: center;
+    max-width: 300px;
+    margin: 0 auto;
+    @include flexbox(center, center);
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__copy {
+    font-size: 12px;
+  }
+}
+
+.footer-widget {
+  border-radius: 5px;
+  background-color: #d9f1e0;
+  position: relative;
+  z-index: 11;
+  padding: 30px 50px;
+  margin: 0 10px 50px 10px;
+  @include flexbox(center, center);
+  flex-direction: column;
+  gap: 25px;
+  &__title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    color: $heading-color;
+    span {
+      color: $main-light-color;
+    }
+  }
+}
+
+.footer-subscribe {
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 30px;
+  }
+  &__form {
+    @include flexbox(space-between, end);
+    border-bottom: 1px solid $light-color;
+    gap: 34px;
+    margin-bottom: 15px;
+    max-width: 500px;
+  }
+  &__input {
+    background: transparent;
+    border: none;
+    color: $light-color;
+    width: 100%;
+    padding: 0px 5px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Nunito", sans-serif;
+    &::placeholder {
+      font-family: "Nunito", sans-serif;
+      color: $light-color;
+    }
+    outline: none;
+  }
+  &__submit {
+    font-size: 22px;
+    font-weight: 700;
+    color: $light-color;
+  }
+}
+
+.footer-social {
+  @include flexbox(start, center);
+  flex-wrap: wrap;
+  gap: 20px;
+  &__link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $light-color;
+    @include flexbox(center, center);
+    border-radius: 50%;
+    .icon {
+      fill: $light-color;
+      width: 17px;
+      height: 17px;
+    }
+    &:hover {
+      background-color: $light-color;
+      .icon {
+        fill: $main-light-color;
+      }
+    }
+  }
+}
+
+.footer-menu {
+  &__wrapper {
+    @include flexbox(start, stretch);
+    gap: 20px;
+  }
+  &__list {
+    width: 50%;
+    @include flexbox(start, start);
+    flex-direction: column;
+    gap: 10px;
+  }
+  &__item {
+    @include flexbox(start, center);
+    gap: 10px;
+  }
+  &__btn {
+    .icon {
+      width: 13px;
+      height: 13px;
+      fill: $light-color;
+    }
+  }
+}
+
+.footer-services {
+  &__link {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.footer-politics {
+  @include flexbox(start, center);
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    &::before {
+      height: 55px;
+    }
+    &__row {
+      @include flexbox(start, stretch);
+      flex-wrap: wrap;
+      margin: 0 -15px 15px -15px;
+    }
+    &__col {
+      margin: 15px;
+    }
+    &__col-md-6 {
+      width: calc(100% / 12 * 6 - 30px);
+    }
+    &__col-md-3 {
+      width: calc(100% / 12 * 3 - 30px);
+    }
+    &__title {
+      font-size: 22px;
+      margin-bottom: 40px;
+    }
+    &__address,
+    &__number a,
+    &__email a {
+      font-size: 16px;
+      line-height: 28px;
+    }
+    &__bottom {
+      border-top: 1px solid $light-color;
+    }
+    &__info-wrapper {
+      border-top: none;
+      padding: 30px 30px 40px 30px;
+    }
+    &__info {
+      text-align: center;
+      max-width: 100%;
+      margin: 0;
+      @include flexbox(space-between, center);
+      flex-direction: row;
+      padding: 0;
+      gap: 20px;
+    }
+    &__copy {
+      font-size: 16px;
+    }
+  }
+  .footer-widget {
+    margin: 0 0 115px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 100px;
+    gap: 30px;
+    &__title {
+      font-size: 30px;
+    }
+  }
+  .footer-subscribe {
+    &__text {
+      font-size: 16px;
+      line-height: 28px;
+      margin-bottom: 40px;
+    }
+    &__form {
+      @include flexbox(space-between, end);
+      border-bottom: 1px solid $light-color;
+      gap: 50px;
+      margin-bottom: 30px;
+      max-width: auto;
+    }
+    &__submit {
+      font-size: 24px;
+    }
+  }
+  .footer-menu {
+    &__item {
+      gap: 5px;
+    }
+    &__link {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+  .footer-services {
+    &__link {
+      font-size: 16px;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+  .footer-politics {
+    &__link {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (min-width: 1430px) {
+  .footer {
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .btn {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+    &::before {
+      height: 55px;
+    }
+    &__row {
+      margin: 0 -35px 15px -35px;
+    }
+    &__col {
+      margin: 0 35px;
+    }
+    &__col-lg-4 {
+      width: calc(100% / 12 * 4 - 70px);
+    }
+    &__col-lg-3 {
+      width: calc(100% / 12 * 3 - 70px);
+    }
+    &__col-lg-2 {
+      width: calc(100% / 12 * 2 - 70px);
+    }
+    &__title {
+      font-size: 24px;
+      margin-bottom: 80px;
+    }
+    &__contacts {
+      padding-left: 70px;
+    }
+    &__address,
+    &__number a,
+    &__email a {
+      font-size: 18px;
+      line-height: 30px;
+    }
+    &__address,
+    &__number {
+      margin-bottom: 20px;
+    }
+    &__number {
+      a {
+        display: block;
+      }
+    }
+    &__bottom {
+      margin-top: 40px;
+      border-top: 1px solid $light-color;
+    }
+    &__info-wrapper {
+      border-top: none;
+      padding: 30px 100px 40px 100px;
+    }
+    &__info {
+      text-align: center;
+      max-width: 100%;
+      margin: 0;
+      @include flexbox(space-between, center);
+      flex-direction: row;
+      padding: 0;
+      gap: 20px;
+    }
+    &__copy {
+      font-size: 16px;
+    }
+  }
+  .footer-widget {
+    margin: 0 0 115px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 100px;
+    gap: 30px;
+    &__title {
+      font-size: 30px;
+    }
+  }
+  .footer-subscribe {
+    &__text {
+      font-size: 18px;
+      line-height: 30px;
+      margin-bottom: 44px;
+    }
+  }
+  .footer-menu {
+    &__list {
+      gap: 20px;
+    }
+    &__link {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+  .footer-services {
+    &__link {
+      font-size: 18px;
+    }
+  }
+  .footer-politics {
+    &__link {
+      font-size: 18px;
+    }
+  }
+}

@@ -5,6 +5,10 @@ body {
   color: $heading-color;
 }
 
+.stop-scroll {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -29,6 +33,11 @@ img {
   z-index: 8;
 }
 
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
 button {
   background: transparent;
   border: none;
@@ -50,6 +59,7 @@ button {
   padding: 10px 30px;
   border-radius: 5px;
   border: 1px solid $main-light-color;
+  gap: 10px;
 }
 
 .btn-more {
