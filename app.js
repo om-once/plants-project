@@ -87,4 +87,32 @@ addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+  const faqItems = document.querySelectorAll(".faq__item");
+  faqItems.forEach((item, index) => {
+    let faqBtn = item.querySelector(".faq__btn");
+    let faqAnswer = item.querySelector(".faq__answer");
+    let faqNum = item.querySelector(".faq__num");
+    faqNum.textContent = `${index + 1}.`;
+    faqBtn.addEventListener("click", function () {
+      item.classList.toggle("active");
+      faqAnswer.classList.toggle("visually-hidden");
+    });
+  });
+  const swiper3 = new Swiper(".company-logos__slider", {
+    // Optional parameters
+    direction: "horizontal",
+    loop: false,
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    breakpoints: {
+      767: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+      },
+      1024: {
+        slidesPerView: 6,
+        slidesPerGroup: 6,
+      },
+    },
+  });
 });

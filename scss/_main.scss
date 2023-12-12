@@ -199,14 +199,8 @@
 }
 
 .services {
-  padding: 50px 0;
+  padding: 50px 0 25px 0;
   text-align: center;
-  .subtitle {
-    margin-bottom: 15px;
-  }
-  .text {
-    margin-bottom: 30px;
-  }
   .col:not(:last-child) {
     margin-bottom: 20px;
   }
@@ -259,14 +253,6 @@
 }
 
 @media (min-width: 1024px) {
-  .services {
-    .subtitle {
-      margin-bottom: 30px;
-    }
-    .text {
-      margin-bottom: 50px;
-    }
-  }
   .services-card {
     flex-direction: column;
     text-align: center;
@@ -294,10 +280,13 @@
   }
 }
 
-@media (min-width: 1430px) {
+@media (min-width: 1024px) {
   .services {
-    padding: 100px 0;
+    padding: 100px 0 50px 0;
   }
+}
+
+@media (min-width: 1430px) {
   .services-card {
     cursor: pointer;
     &:hover {
@@ -317,6 +306,7 @@
 }
 
 .about {
+  padding: 25px 0 50px 0;
   .decor {
     display: none;
   }
@@ -430,7 +420,7 @@
 
 @media (min-width: 1024px) {
   .about {
-    padding: 50px 0;
+    padding: 50px 0 100px 0;
     &__desc {
       padding: 45px 0;
       .subtitle {
@@ -461,7 +451,6 @@
     display: block;
   }
   .about {
-    padding: 50px 0 100px 0;
     &__content {
       position: relative;
       .decor {
@@ -688,13 +677,6 @@
 
 .working {
   padding: 50px 0;
-  &__top {
-    text-align: center;
-    margin-bottom: 30px;
-    .subtitle {
-      margin-bottom: 15px;
-    }
-  }
   &__content {
     .col {
       margin-bottom: 20px;
@@ -755,12 +737,6 @@
     &__icon-bg {
       width: 160px;
       height: 160px;
-    }
-    &__top {
-      margin-bottom: 30px;
-      .subtitle {
-        margin-bottom: 20px;
-      }
     }
     &__content {
       .col {
@@ -909,12 +885,9 @@
 
 .team {
   padding: 50px 0;
-  &__top {
-    text-align: center;
-    .subtitle {
-      margin-bottom: 15px;
-    }
-    .text {
+  .section-top {
+    max-width: 100%;
+    &__content {
       margin-bottom: 30px;
     }
   }
@@ -1039,20 +1012,6 @@
 @media (min-width: 1024px) {
   .team {
     padding: 100px 0;
-    &__top {
-      text-align: left;
-      @include flexbox(space-between, end);
-      gap: 30px;
-      .subtitle {
-        margin-bottom: 30px;
-      }
-      .text {
-        margin-bottom: 0;
-      }
-      .btn {
-        flex-shrink: 0;
-      }
-    }
     &__about {
       max-width: 985px;
     }
@@ -1074,6 +1033,26 @@
   }
 }
 
+@media (min-width: 1430px) {
+  .team {
+    .section-top {
+      text-align: left;
+      @include flexbox(space-between, end);
+      gap: 30px;
+      &__content {
+        max-width: 960px;
+        margin-bottom: 0;
+        .text {
+          margin-bottom: 0;
+        }
+      }
+      .btn {
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
 .clients {
   padding-top: 50px;
   background: #e6f6ea;
@@ -1081,16 +1060,10 @@
     77.4px -77.4px 77.4px 0px rgba(175, 187, 178, 0.1) inset;
   backdrop-filter: blur(36.37799835205078px);
   position: relative;
-  &__info {
-    text-align: center;
-    .subtitle {
-      margin-bottom: 15px;
-    }
-    .text {
-      margin-bottom: 40px;
-    }
-  }
   .clients-slider {
+    .section-top {
+      max-width: 100%;
+    }
     &__slide {
       background-color: $light-color;
       box-shadow: 2px 11px 30px 0px rgba(51, 51, 51, 0.08);
@@ -1155,7 +1128,8 @@
       fill: $main-light-color;
     }
   }
-  &__bottom {
+  &::after {
+    content: "";
     width: 100%;
     height: 100px;
     position: absolute;
@@ -1181,7 +1155,7 @@
         margin: 15px;
       }
     }
-    &__bottom {
+    &::after {
       height: 60px;
     }
   }
@@ -1189,16 +1163,6 @@
 
 @media (min-width: 1024px) {
   .clients {
-    &__info {
-      text-align: left;
-      .subtitle {
-        margin-bottom: 30px;
-      }
-      .text {
-        margin-bottom: 50px;
-        max-width: 960px;
-      }
-    }
     .author {
       &__name {
         font-size: 24px;
@@ -1212,6 +1176,19 @@
 
 @media (min-width: 1430px) {
   .clients {
+    .section-top {
+      text-align: left;
+      margin: 0 0 30px 0;
+      &__content {
+        max-width: 960px;
+      }
+      .subtitle {
+        margin-bottom: 30px;
+      }
+      .text {
+        margin-bottom: 0;
+      }
+    }
     .clients-slider {
       &__slide {
         @include flexbox(start, center);
@@ -1289,14 +1266,137 @@
   }
 }
 
-.blog {
-  padding: 50px 0;
-  &__top {
-    text-align: center;
-    .subtitle {
+.questions {
+  padding: 50px 0 0 0;
+  .section-top {
+    margin-bottom: 30px;
+  }
+  &__image {
+    display: none;
+  }
+}
+.faq {
+  &__item {
+    &:not(:last-child) {
       margin-bottom: 20px;
     }
+    &.active {
+      .faq__top {
+        background-color: $main-light-color;
+        color: $light-color;
+      }
+      .faq__btn {
+        &::before {
+          background-color: $light-color;
+        }
+        &::after {
+          display: none;
+        }
+      }
+    }
   }
+  &__top {
+    @include flexbox(space-between, center);
+    background-color: #fff8f1;
+    border-radius: 3px;
+    padding: 12px 20px;
+    color: $heading-color;
+    gap: 10px;
+  }
+  &__question {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &__btn {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+    &::before {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 2px;
+      background-color: $heading-color;
+      border-radius: 5px;
+    }
+    &::after {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2px;
+      height: 100%;
+      background-color: $heading-color;
+      border-radius: 5px;
+    }
+  }
+  &__answer {
+    padding: 20px 15px 0 15px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: $text-color;
+  }
+}
+
+@media (min-width: 1024px) {
+  .questions {
+    padding: 100px 0 0 0;
+    .section-top {
+      margin-bottom: 40px;
+      text-align: left;
+    }
+    &__wrapper {
+      @include flexbox(start, stretch);
+      gap: 50px;
+    }
+    &__image {
+      display: inherit;
+      width: 507px;
+      height: 679px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}
+
+@media (min-width: 1430px) {
+  .faq {
+    &__item {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+    &__top {
+      padding: 13px 30px;
+    }
+    &__question {
+      font-size: 24px;
+    }
+    &__btn {
+      width: 30px;
+      height: 30px;
+    }
+    &__answer {
+      font-size: 16px;
+      line-height: 28px;
+      padding: 20px 30px 0 30px;
+    }
+  }
+}
+.blog {
+  padding: 50px 0;
 }
 .blog-slider {
   width: 100%;
@@ -1403,14 +1503,7 @@
 
 @media (min-width: 1024px) {
   .blog {
-    padding: 100px 0 160px 0;
-    &__top {
-      text-align: center;
-      .text {
-        max-width: 1136px;
-        margin: 0 auto;
-      }
-    }
+    padding: 100px 0 100px 0;
   }
   .blog-slider {
     padding: 50px 0 68px 0;
@@ -1470,6 +1563,55 @@
       .swiper-pagination-bullet-active {
         background-color: $main-light-color;
       }
+    }
+  }
+}
+
+.company-logos {
+  &__slider {
+    padding: 0 0 50px;
+  }
+  &__slide {
+    height: 70px;
+    @include flexbox(center, center);
+    gap: 60px;
+  }
+  &__img {
+    max-width: 100%;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .company-logos {
+    &__slider {
+      padding: 0 0 100px;
+    }
+    &__slide {
+      gap: 20px;
+    }
+  }
+}
+
+@media (min-width: 1840px) {
+  .company-logos {
+    .container {
+      max-width: 1840px;
+    }
+    &__wrapper {
+      @include flexbox(start, center);
+      width: 100%;
+      margin: 0 -50px;
+    }
+    &__slide {
+      height: 100px;
+      @include flexbox(start, center);
+      width: calc(100% / 6 - 100px) !important;
+      margin: 0 50px;
+    }
+    &__img {
+      width: 100%;
+      height: 100%;
     }
   }
 }
